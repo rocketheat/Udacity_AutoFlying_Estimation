@@ -4,7 +4,7 @@
 ## The Tasks ##
 
 A summary of Kalman filter is provided here:
-![Kalman Filter](./images/Kalman Filter.png)
+![Kalman Filter](./images/KalmanFilter.png)
 
 ### Step 1: Sensor Noise ###
 
