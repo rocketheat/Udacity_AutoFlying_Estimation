@@ -98,7 +98,7 @@ Another set of bad examples is shown below for having a `QVelXYStd` too large (f
 ***Success criteria:*** *This step doesn't have any specific measurable criteria being checked.*
 
 #### Answer:
-
+I used the transition equation provided in the Estimation for Quadrotors (equation 49) and I updated the function. I then used the Equation number 52 to update the GetRbgPrime function. We then updated the Jacobian as outlined in equation 51. We then used the covariance matrix equation Pk = APk-1AT + Q outlined in the graph above.
 
 
 ### Step 4: Magnetometer Update ###
@@ -121,6 +121,8 @@ Up until now we've only used the accelerometer and gyro for our state estimation
 
 **Hint: see section 7.3.2 of [Estimation for Quadrotors](https://www.overleaf.com/read/vymfngphcccj) for a refresher on the magnetometer update.**
 
+#### Answer:
+I calculated the difference between estimated and measured yaw angle and then updated the hPrime matrix as oulined in quation 58 in Estimation for Quadrotors
 
 ### Step 5: Closed Loop + GPS Update ###
 
@@ -146,6 +148,9 @@ Up until now we've only used the accelerometer and gyro for our state estimation
 
 At this point, congratulations on having a working estimator!
 
+#### Answer:
+For this I updated the measurement model using the observations as detailed in equation 54 in Estimation for Quadrotors
+
 ### Step 6: Adding Your Controller ###
 
 Up to this point, we have been working with a controller that has been relaxed to work with an estimated state instead of a real state.  So now, you will see how well your controller performs and de-tune your controller accordingly.
@@ -160,6 +165,10 @@ Up to this point, we have been working with a controller that has been relaxed t
 
 ***Success criteria:*** *Your objective is to complete the entire simulation cycle with estimated position error of < 1m.*
 
+#### Answer:
+After I added the controller it was very challenging to tune it utilizing sensor estimation. It was easier to me to tune the provided controller (I was able to identify which sub-controller need to be tuned and simply do it). Here when it started the controller was very unstable. I followed the logic provided to decrease the tuning parameters to ~30% and then attempt to slowly adjust numbers. I eventually passed all the test but the flight is not the smoothest flight.
+
+I believe I can still better optimize the flight. I would probably write a bash code which run over ranges in the modifiable variables and run it for a while and by doing this find the appropriate combinations. We can also convert finding the solution to an optimization problem and attempted to minimize errors using newton methods. 
 
 ## Tips and Tricks ##
 
