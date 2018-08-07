@@ -168,28 +168,4 @@ Up to this point, we have been working with a controller that has been relaxed t
 #### Answer:
 After I added the controller it was very challenging to tune it utilizing sensor estimation. It was easier to me to tune the provided controller (I was able to identify which sub-controller need to be tuned and simply do it). Here when it started the controller was very unstable. I followed the logic provided to decrease the tuning parameters to ~30% and then attempt to slowly adjust numbers. I eventually passed all the test but the flight is not the smoothest flight.
 
-I believe I can still better optimize the flight. I would probably write a bash code which run over ranges in the modifiable variables and run it for a while and by doing this find the appropriate combinations. We can also convert finding the solution to an optimization problem and attempted to minimize errors using newton methods. 
-
-## Tips and Tricks ##
-
- - When it comes to transposing matrices, `.transposeInPlace()` is the function you want to use to transpose a matrix
-
- - The [Estimation for Quadrotors](https://www.overleaf.com/read/vymfngphcccj) document contains a helpful mathematical breakdown of the core elements on your estimator
-
-## Submission ##
-
-For this project, you will need to submit:
-
- - a completed estimator that meets the performance criteria for each of the steps by submitting:
-   - `QuadEstimatorEKF.cpp`
-   - `config/QuadEstimatorEKF.txt`
-
- - a re-tuned controller that, in conjunction with your tuned estimator, is capable of meeting the criteria laid out in Step 6 by submitting:
-   - `QuadController.cpp`
-   - `config/QuadControlParams.txt`
-
- - a write up addressing all the points of the rubric
-
-## Authors ##
-
-Thanks to Fotokite for the initial development of the project code and simulator.
+I believe I can still better optimize the flight. I would probably write a bash code which run over ranges in the modifiable variables and run it for a while and by doing this find the appropriate combinations. We can also convert finding the solution to an optimization problem and attempted to minimize errors using newton methods.
