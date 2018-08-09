@@ -329,17 +329,20 @@ float QuadControl::YawControl(float yawCmd, float yaw)
 	float yawRateCmd = 0;
 	////////////////////////////// BEGIN STUDENT CODE ///////////////////////////
 
-	// Unwrap a radian angle measure
+	//// Unwrap a radian angle measure
 	float twoPi = 2.0 * M_PI;
-	yawCmd -= twoPi * floor(yawCmd / twoPi);
+	if (yawCmd > M_PI) yawCmd -= twoPi;
+	if (yawCmd < -M_PI) yawCmd += twoPi;
 
 	// Calculate the error
 	float yaw_err = yawCmd - yaw;
 
-	// Unwrap a radian angle measure
-	yaw_err -= twoPi * floor(yaw_err / twoPi);
+	//// Unwrap a radian angle measure
+	if (yaw_err > M_PI) yawCmd -= twoPi;
+	if (yaw_err < -M_PI) yawCmd += twoPi;
 
 	yawRateCmd = kpYaw * yaw_err;
+
 
 	/////////////////////////////// END STUDENT CODE ////////////////////////////
 
